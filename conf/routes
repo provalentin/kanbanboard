@@ -3,9 +3,11 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.HomeController.index
+GET     /                           controllers.PersonController.index
+POST    /person                     controllers.PersonController.addPerson
+GET     /persons                    controllers.PersonController.getPersons
 #GET     /card/create                controllers.HomeController.createCard
-#POST    /card/save 		    controllers.HomeController.saveCard
+#POST    /card/save 		             controllers.HomeController.saveCard
 #POST    /card/move                  controllers.HomeController.moveCard
 #GET     /kanbanBoard                controllers.HomeController.kanbanBoard
 
