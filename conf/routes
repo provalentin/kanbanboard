@@ -6,9 +6,9 @@
 GET     /                           controllers.PersonController.index
 POST    /person                     controllers.PersonController.addPerson
 GET     /persons                    controllers.PersonController.getPersons
-#GET     /card/create                controllers.BoardController.createCard
-#POST    /card/save 		             controllers.BoardController.saveCard
-#POST    /card/move                  controllers.BoardController.moveCard
+GET     /card/create                controllers.BoardController.createStory
+#POST    /card/save 		             controllers.BoardController.saveStory
+#POST    /card/move                  controllers.BoardController.moveStory
 GET     /board                      controllers.BoardController.all
 
 # Map static resources from the /public folder to the /assets URL path
