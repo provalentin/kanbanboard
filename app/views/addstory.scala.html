@@ -1,0 +1,19 @@
+@(story: Form[CreateStoryForm])(implicit request: MessagesRequestHeader)
+
+@import helper._
+
+@request.flash.get("success").map { key =>
+   @request.messages(key)
+}
+
+@main("Welcome to Kanban") {
+  @form(routes.BoardController.addStory()) {
+		@inputText(story("title"))
+		@inputText(story("phase"))
+		@CSRF.formField
+
+		<div class="buttons">
+			<input type="submit" value="Add story"/>
+		</div>
+	}
+}
