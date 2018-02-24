@@ -3,13 +3,13 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.PersonController.index
+GET     /addperson                  controllers.PersonController.index
 POST    /person                     controllers.PersonController.addPerson
 GET     /persons                    controllers.PersonController.getPersons
 GET     /card/create                controllers.BoardController.createStory
 POST    /card/save 		              controllers.BoardController.addStory
-#POST    /card/move                  controllers.BoardController.moveStory
-GET     /board                      controllers.BoardController.all
+POST    /card/move                  controllers.BoardController.moveStory
+GET     /                           controllers.BoardController.all
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
