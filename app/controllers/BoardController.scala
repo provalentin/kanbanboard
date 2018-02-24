@@ -35,6 +35,16 @@ class BoardController @Inject()(repo: StoryRepository,
       Ok(Json.toJson(people))
     }
   }
+    
+  /**
+   * The index action.
+   */
+  def createStory = Action { implicit request =>
+    Ok(views.html.index(storyForm))
+  }
+  
+  
+  
 }   
     
  /**
