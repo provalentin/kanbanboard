@@ -31,8 +31,8 @@ class BoardController @Inject()(repo: StoryRepository,
    * A REST endpoint that gets all the story as JSON.
    */
   def all = Action.async { implicit request =>
-    repo.list().map { people =>
-      Ok(Json.toJson(people))
+    repo.list().map { s =>
+      Ok(Json.toJson(s))
     }
   }
     
@@ -67,6 +67,11 @@ class BoardController @Inject()(repo: StoryRepository,
     )
   }
   
+  def moveStory = Action.async { implicit request =>
+    repo.list().map { s =>
+      Ok(Json.toJson(s))
+    }
+  }
 }   
     
  /**
