@@ -61,7 +61,7 @@ class BoardController @Inject()(repo: StoryRepository,
       story => {
         repo.create(story.title, story.phase).map { _ =>
           // If successful, we simply redirect to the index page.
-          Redirect(routes.BoardController.addstory).flashing("success" -> "user.created")
+          Redirect(routes.BoardController.createStory).flashing("success" -> "user.created")
         }
       }
     )
