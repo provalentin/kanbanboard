@@ -5,7 +5,12 @@ create table "people" (
   "name" varchar not null,
   "age" int not null
 );
-
+create table "stories" (
+  "id" bigint gererated by default as identity(start with 1) not null primary key,
+  "title" varchar not null,
+  "phase" varchar not null
+);
 # --- !Downs
 
 drop table "people" if exists;
+drop table "stories" if exists;
