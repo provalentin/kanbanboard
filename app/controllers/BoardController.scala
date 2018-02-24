@@ -43,7 +43,29 @@ class BoardController @Inject()(repo: StoryRepository,
     Ok(views.html.addstory(storyForm))
   }
   
-  
+  /**
+   * The add person action.
+   *
+   * This is asynchronous, since we're invoking the asynchronous methods on PersonRepository.
+   */
+  def addStory = Action.async { implicit request =>
+    // Bind the form first, then fold the result, passing a function to handle errors, and a function to handle succes.
+    storyForm.bindFromRequest.fold(
+      // The error function. We return the index page with the error form, which will render the errors.
+      // We also wrap the result in a successful future, since this action is synchronous, but we're required to return
+      // a future because the person creation function returns a future.
+      errorForm => {
+        Future.successful(Ok(views.html.addstory(errorForm)))
+      },
+      // There were no errors in the from, so create the person.
+      story => {
+        repo.create(story.title, story.phase).map { _ =>
+          // If successful, we simply redirect to the index page.
+          Redirect(routes.BoardController.addstory).flashing("success" -> "user.created")
+        }
+      }
+    )
+  }
   
 }   
     
