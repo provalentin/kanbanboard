@@ -40,7 +40,7 @@ class BoardController @Inject()(repo: StoryRepository,
    * The index action.
    */
   def createStory = Action { implicit request =>
-    Ok(views.html.index(storyForm))
+    Ok(views.html.addstory(storyForm))
   }
   
   
