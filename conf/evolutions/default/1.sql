@@ -10,6 +10,7 @@ create table "stories" (
   "title" varchar not null,
   "phase" varchar not null
 );
+
 # --- !Downs
 
 drop table "people" if exists;
