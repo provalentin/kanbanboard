@@ -18,9 +18,9 @@ class BoardController @Inject()(repo: StoryRepository,
   extends MessagesAbstractController(cc) {
 
   /**
-   * The mapping for the person form.
+   * The mapping for the story form.
    */
-  val personForm: Form[CreateStoryForm] = Form {
+  val storyForm: Form[CreateStoryForm] = Form {
     mapping(
       "title" -> nonEmptyText,
       "phase" -> text
@@ -28,9 +28,9 @@ class BoardController @Inject()(repo: StoryRepository,
   }
     
   /**
-   * A REST endpoint that gets all the people as JSON.
+   * A REST endpoint that gets all the story as JSON.
    */
-  def getPersons = Action.async { implicit request =>
+  def all = Action.async { implicit request =>
     repo.list().map { people =>
       Ok(Json.toJson(people))
     }
@@ -38,7 +38,7 @@ class BoardController @Inject()(repo: StoryRepository,
 }   
     
  /**
- * The create person form.
+ * The create story form.
  *
  * Generally for forms, you should define separate objects to your models, since forms very often need to present data
  * in a different way to your models.  In this case, it doesn't make sense to have an id parameter in the form, since
