@@ -75,4 +75,15 @@ class StoryRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(impli
   def list(): Future[Seq[Story]] = db.run {
     people.result
   }
+
+  def getStoryById(storyId: Long) : Future[Option[Story]] = 
+    db.run(people.filter(_.id === storyId).result.headOption)
+
+  def update(id: Long, story: Story): Future[Unit] = {
+    val storyToUpdate: Story = story.copy(id)
+    db.run(people.filter(_.id === id).update(storyToUpdate)).map(_ => ())
+  }  
+
+  def delete(id: Long): Future[Unit] =
+    db.run(people.filter(_.id === id).delete).map(_ => ())
 }
