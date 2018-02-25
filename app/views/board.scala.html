@@ -4,17 +4,14 @@
   <head>
     <meta charset="UTF-8" />
   	  <title>weKanban: A simple Kanban board</title>
-  	  <script type="text/javascript" src="/js/jquery-1.4.2.js"/>
-  	  <script type="text/javascript" src="/js/jquery.ui.core.js"/>
-  	  <script type="text/javascript" src="/js/jquery.ui.widget.js"/>
-  	  <script type="text/javascript" src="/js/jquery.ui.mouse.js"/>
-  	  <script type="text/javascript" src="/js/jquery.ui.draggable.js"/>
-  	  <script type="text/javascript" src="/js/jquery.ui.droppable.js"/>
-  	  <script type="text/javascript" src="/js/main.js"/>
-  	  <link type="text/css" href="/css/main.css" rel="stylesheet" />
-  	  <script type="text/javascript">
-        init()
-  	  </script>
+  	  <script type="text/javascript" src="/assets/js/jquery.min.js"> </script>
+  	  <script type="text/javascript" src="/assets/js/jquery.ui.core.js"> </script>
+  	  <script type="text/javascript" src="/assets/js/jquery.ui.widget.js"> </script>
+  	  <script type="text/javascript" src="/assets/js/jquery.ui.mouse.js"> </script>
+  	  <script type="text/javascript" src="/assets/js/jquery.ui.draggable.js"> </script>
+  	  <script type="text/javascript" src="/assets/js/jquery.ui.droppable.js"> </script>
+  	  <script type="text/javascript" src="/assets/js/main.js"> </script>
+      <link href="/assets/css/main.css" rel="stylesheet">
   </head>
   <body>
     <h2 class="header">weKanban: Simple Kanban board</h2>
@@ -27,7 +24,7 @@
       @for(story <- c if story.phase == "ready") {
         <div id=@story.id class="story">
           <fieldset>
-            <legend>@story.id</legend>
+            <legend>#@story.id</legend>
             <div class="section">
               <label>@story.title</label>
             </div>
@@ -40,7 +37,7 @@
       @for(story <- c if story.phase == "dev") {
         <div id=@story.id class="story">
           <fieldset>
-            <legend>@story.id</legend>
+            <legend>#@story.id</legend>
             <div class="section">
               <label>@story.title</label>
             </div>
@@ -53,7 +50,7 @@
       @for(story <- c if story.phase == "test") {
         <div id=@story.id class="story">
           <fieldset>
-            <legend>@story.id</legend>
+            <legend>#@story.id</legend>
             <div class="section">
               <label>@story.title</label>
             </div>
@@ -66,7 +63,7 @@
       @for(story <- c if story.phase == "deploy") {
         <div id=@story.id class="story">
           <fieldset>
-            <legend>@story.id</legend>
+            <legend>#@story.id</legend>
             <div class="section">
               <label>@story.title</label>
             </div>
@@ -75,5 +72,5 @@
       }
     </div>
   </body>
-  </html>
+</html>
   
