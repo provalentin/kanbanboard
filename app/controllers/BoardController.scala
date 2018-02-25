@@ -68,10 +68,13 @@ class BoardController @Inject()(repo: StoryRepository,
   }
   
   def moveStory = Action.async { implicit request =>
+    val storyId = request.body.asFormUrlEncoded.get("id").map(_.head)
+    println("moveStory: request " + request +  " id: " + storyId )
     repo.list().map { s =>
       Ok(Json.toJson(s))
     }
   }
+
 }   
     
  /**
