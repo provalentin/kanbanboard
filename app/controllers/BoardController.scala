@@ -32,7 +32,7 @@ class BoardController @Inject()(repo: StoryRepository,
    */
   def all = Action.async { implicit request =>
     repo.list().map { s =>
-      Ok(Json.toJson(s))
+      Ok(views.html.board(Json.toJson(s).toString)(s))
     }
   }
     

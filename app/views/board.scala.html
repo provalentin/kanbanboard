@@ -1,4 +1,6 @@
-  <html>
+@(title: String)(c : Seq[Story])
+  
+<html>
   <head>
     <meta charset="UTF-8" />
   	  <title>weKanban: A simple Kanban board</title>
@@ -17,23 +19,60 @@
   <body>
     <h2 class="header">weKanban: Simple Kanban board</h2>
     <span id="message" class="message clearFloat"></span>
+    <a> @title </a>
     <br/>
     <span class="linkLabel clearFloat"><a href="/card/create">[Add new story to Ready Phase]</a></span>
     <div class="phase" id="readyPhase">
       <h3 class="message" title="Stories ready for development. Limit is set to 3">Ready [3]</h3>
-      {stories("ready")}
+      @for(story <- c if story.phase == "ready") {
+        <div id=@story.id class="story">
+          <fieldset>
+            <legend>@story.id</legend>
+            <div class="section">
+              <label>@story.title</label>
+            </div>
+          </fieldset>
+        </div>
+      }
     </div>
     <div class="phase" id="devPhase">
       <h3 class="message" title="Stories in progress. Limit is set to 2">Dev [2]</h3>
-      {stories("dev")}
+      @for(story <- c if story.phase == "dev") {
+        <div id=@story.id class="story">
+          <fieldset>
+            <legend>@story.id</legend>
+            <div class="section">
+              <label>@story.title</label>
+            </div>
+          </fieldset>
+        </div>
+      }
     </div>
     <div class="phase" id="testPhase">
       <h3 class="message" title="Stories that are tested. Limit is set to 2">Test [2]</h3>
-      {stories("test")}
+      @for(story <- c if story.phase == "test") {
+        <div id=@story.id class="story">
+          <fieldset>
+            <legend>@story.id</legend>
+            <div class="section">
+              <label>@story.title</label>
+            </div>
+          </fieldset>
+        </div>
+      }
     </div>
     <div class="phase" id="deployPhase" title="Ready for production deployment">
       <h3 class="message">Deploy</h3>
-      {stories("deploy")}
+      @for(story <- c if story.phase == "deploy") {
+        <div id=@story.id class="story">
+          <fieldset>
+            <legend>@story.id</legend>
+            <div class="section">
+              <label>@story.title</label>
+            </div>
+          </fieldset>
+        </div>
+      }
     </div>
   </body>
   </html>
