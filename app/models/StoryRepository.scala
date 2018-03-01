@@ -84,6 +84,10 @@ class StoryRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(impli
     db.run(people.filter(_.id === id).update(storyToUpdate)).map(_ => ())
   }  
 
+  def updateStatus(id: Long, newStatus: String): Future[Unit] = {
+    db.run(people.filter(_.id === id).map(_.phase).update(newStatus)).map(_ => ())
+  } 
+
   def delete(id: Long): Future[Unit] =
     db.run(people.filter(_.id === id).delete).map(_ => ())
 }
