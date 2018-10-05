@@ -29,26 +29,27 @@ Read Scala Functions
 
 A bitset is a set of non-negative integers depicted as arrays. These arrays are variable in size and packed into 64-bit words. The largest number in a bitset determines its memory footprint. Let’s take an example.
 
-scala> import scala.collection.immutable._
+```shell-session
+> import scala.collection.immutable._
 import scala.collection.immutable._
-scala> var nums=BitSet(7,2,4,3,1)
+> var nums=BitSet(7,2,4,3,1)
 nums: scala.collection.immutable.BitSet = BitSet(1, 2, 3, 4, 7)
-scala> nums+=9  //Adding an element
-scala> nums
+> nums+=9  //Adding an element
+> nums
 res14: scala.collection.immutable.BitSet = BitSet(1, 2, 3, 4, 7, 9)
 
-scala> nums-=4  //Deleting an element
-scala> nums
+> nums-=4  //Deleting an element
+> nums
 res16: scala.collection.immutable.BitSet = BitSet(1, 2, 3, 7, 9)
 
-scala> nums-=0  //Deleting an element that doesn’t exist
-scala> nums
+> nums-=0  //Deleting an element that doesn’t exist
+> nums
 res18: scala.collection.immutable.BitSet = BitSet(1, 2, 3, 7, 9)
-
+```
 4.      What is a vector in Scala?
 
 A vector is a general-purpose data structure that is immutable. We can use it when we want to hold a huge number of elements and want random access to them. This data structure extends the trait IndexedSeq and the abstract class AbstractSeq.
-
+```bash
 scala> import scala.collection.immutable._
 import scala.collection.immutable._
 scala> var v1=Vector.empty
@@ -67,13 +68,13 @@ res20: scala.collection.immutable.Vector[Int] = Vector(7, 9, 5, 6, 2, 8)
 
 scala> v3.sorted  //Sorting a vector
 res21: scala.collection.immutable.Vector[Int] = Vector(2, 5, 6, 7, 8, 9)
-
+```
 In results 20 and 21, we do not assign the expression to any variable, so not that this doesn’t change the original vectors.
 
 5.      Explain streams in Scala.
 
 A stream is a lazy list as it evaluates elements only when it needs to. This lazy computation enhances program performance.
-
+```sh
 scala> val stream=177#::199#::69#::Stream.empty
 stream: scala.collection.immutable.Stream[Int] = Stream(177, ?)
 Since we don’t need the second element yet, Scala doesn’t evaluate it.
@@ -85,7 +86,7 @@ res22: Int = 177
 
 scala> stream.map{_*2}
 res24: scala.collection.immutable.Stream[Int] = Stream(354, ?)
-
+```
 Learn Scala Arrays and Multidimensional Arrays in Scala
 
 6.      What are the advantages of Scala?
@@ -110,7 +111,7 @@ At the time of writing, Scala 2.12.6 is the latest version. The interviewer may 
 8.      How is Val different from var in Scala?
 
 In this language, val is a value and var is a variable. These are two different keywords for declaring immutable and mutable entities respectively. This means that you can always reassign a var, but trying to do that to a val makes the compiler throw an error.
-
+```shell
 scala> val c=7
 c: Int = 7
 scala> c=8
@@ -121,15 +122,16 @@ scala> var c=7
 c: Int = 7
 scala> c=8
 c: Int = 8
-
+```
 9.      Why do we need App in Scala?
 
 App is a helper class that holds the main method. We can have our classes extend App to render executable code:
-
+```console
 scala> object Hello extends App{
     | println("Hello")
     | }
 defined object Hello
+```
 With this code, our object Hello inherits the main method from the App trait.
 
 10.     How is a class different from an object?
