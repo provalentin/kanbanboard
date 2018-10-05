@@ -1,7 +1,7 @@
 1.      What is ofDim in Scala?
 
 ofDim() is a method in Scala that lets us create multidimensional arrays. Since these let us store data in more than one dimension, we can store data like in a matrix. Let’s take an example.
-
+```bash
 scala> import Array.ofDim
 import Array.ofDim
 scala> var a=ofDim[Int](3,3)
@@ -17,6 +17,7 @@ scala> for(i<-0 to 2){
     | }
 scala> a
 res12: Array[Array[Int]] = Array(Array(1, 2, 3), Array(4, 5, 6), Array(7, 8, 9)).
+```
 
 2.      What do you have to say about exception propagation in Scala?
 
