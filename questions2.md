@@ -30,20 +30,20 @@ Read Scala Functions
 A bitset is a set of non-negative integers depicted as arrays. These arrays are variable in size and packed into 64-bit words. The largest number in a bitset determines its memory footprint. Let’s take an example.
 
 ```shell-session
-> import scala.collection.immutable._
+scala> import scala.collection.immutable._
 import scala.collection.immutable._
-> var nums=BitSet(7,2,4,3,1)
+scala> var nums=BitSet(7,2,4,3,1)
 nums: scala.collection.immutable.BitSet = BitSet(1, 2, 3, 4, 7)
-> nums+=9  //Adding an element
-> nums
+scala> nums+=9  //Adding an element
+scala> nums
 res14: scala.collection.immutable.BitSet = BitSet(1, 2, 3, 4, 7, 9)
 
-> nums-=4  //Deleting an element
-> nums
+scala> nums-=4  //Deleting an element
+scala> nums
 res16: scala.collection.immutable.BitSet = BitSet(1, 2, 3, 7, 9)
 
-> nums-=0  //Deleting an element that doesn’t exist
-> nums
+scala> nums-=0  //Deleting an element that doesn’t exist
+scala> nums
 res18: scala.collection.immutable.BitSet = BitSet(1, 2, 3, 7, 9)
 ```
 4.      What is a vector in Scala?
@@ -138,11 +138,6 @@ With this code, our object Hello inherits the main method from the App trait.
 
 A class is a blueprint, a definition. In terms of methods and compositions of other types, it defines a type. An object, however, is a singleton. It is a unique instance of a class. Every object in your code has an anonymous class for it. Where in Java, you would use a class with static members, you use an object in Scala.
 
-Read more on Classes and Objects in Scala.
-
-Scala Interview Questions for Freshers – Q. 1,2,3,4,5,6,7,10
-
-Scala Interview Questions for Experienced – Q. 8,9
 
 11.     How do the terms ‘Null’, ‘Nil’, ‘None’, and ‘Nothing’ differ in Scala?
 
@@ -163,26 +158,26 @@ In Scala, a function is also a value. Unlike in Java, we can assign it to vals a
 14.     Explain vararg arguments.
 
 With varargs, we can pass a variable number of arguments to a method.
-
+```
 scala> def func(arg:String*)=arg.mkString(", ")
 func: (arg: String*)String
 scala> func("red","green","blue")
 res28: String = red, green, blue
-
+```
 15.     What do you know about traits in Scala?
 
 A trait is like a partially implemented interface that can hold abstract and non-abstract methods. They’re like Java interfaces; that is what Scala compiles them into. Let’s take an example.
 
 Learn more about Scala trait
-
+```
 scala> trait Hello{
     | def sayhello()
     | }
 defined trait Hello
 warning: previously defined object Hello is not a companion to trait Hello.
-
+```
 Companions must be defined together; you may wish to use: paste mode for this.
-
+```
 scala> class A extends Hello{
     | def sayhello(){
     | println("Hello")
@@ -193,16 +188,16 @@ scala> var a=new A()
 a: A = A@10e595ed
 scala> a.sayhello()
 Hello
-
+```
 16.     What is an Option in Scala?
 
 A Scala Option is a kind of a container. It can hold zero or one element of a type. When it holds a value, it holds Some[T]; otherwise, it holds a None object, as we discussed in the previous question.
-
+```
 scala> val o:Option[Int]=Some(7)
 o: Option[Int] = Some(7)
 scala> val o1:Option[Int]=None
 o1: Option[Int] = None
-
+```
 17.     Is a case class the same as a regular class in Scala?
 
 No, these aren’t synonyms. Here are a few important characteristics of a Scala case class:
@@ -216,7 +211,7 @@ For more on case classes, read up on Case Classes in Scala.
 18.     What is tail-recursion in Scala?
 
 Recursion is when a function makes a call to itself. When we place this call as the last action performed in the function, we can call the function tail-recursive.
-
+```
 scala> def factorial(n:Int):Int={
     | if(n==1) return 1
     | n*factorial(n-1)
@@ -224,11 +219,11 @@ scala> def factorial(n:Int):Int={
 factorial: (n: Int)Int
 scala> factorial(5)
 res30: Int = 120
-
+```
 19.     What is a higher-order function in Scala?
 
 This is a feature of Scala. A higher-order function is one that takes another as a parameter, or that returns a function.
-
+```
 scala> def func1(s:String){
     | println("I love "+s)
     | }
@@ -239,16 +234,14 @@ scala> def func2(f:String=>Unit,s:String){
 func2: (f: String => Unit, s: String)Unit
 scala> func2(func1, "pizza")
 I love pizza
+```
 20.    Explain the working of yield in Scala.
 
 Used with a loop, yield produces a value for each iteration. Another way to do is to use map/flatMap and filter with nomads.
-
+```
 scala> for(i<-1 to 4) yield i*3
 res35: scala.collection.immutable.IndexedSeq[Int] = Vector(3, 6, 9, 12)
-
-Scala Interview Questions for Freshers – Q. 12,13,14,15,16,17,18,19
-
-Scala Interview Questions for Experienced – Q. 11,20
+```
 
 21.     Prove that Scala is a language statically/strongly typed.
 
@@ -259,7 +252,7 @@ Learn Scala Map
 22.     How do you use Scala to append to a List?
 
 For this purpose, we use the single value ‘:+’.
-
+```
 scala> var a=List.empty[String]
 a: List[String] = List()
 scala> a :+="red"
@@ -272,8 +265,8 @@ res40: List[String] = List(red, green, blue)
 scala> a++=List("golden","bronze")
 scala> a
 res42: List[String] = List(red, green, blue, golden, bronze)
+```
 
-Learn about Scala List
 
 23.     Are concurrency and parallelism the same thing? Explain.
 
@@ -283,22 +276,19 @@ When we take a task and break it into subtasks to execute at one time by multipl
 
 We have four kinds of identifiers in Scala.
 
-Scala Interview Questions
-Scala Interview Questions – Identifiers in Scala
-
-a. Alphanumeric Identifiers
+*. Alphanumeric Identifiers
 
 These contain letters, underscores, and digits, but only begin with a letter or with an underscore. We name them in camel case. Here are a few examples: ab12, myVal, Pi.
 
-b. Operator Identifiers
+*. Operator Identifiers
 
 These contain operator characters except these- ( ) [ ] { } ‘ ” _ . , ; , `. Some valid examples are: +  => <?> ::: .
 
-c. Mixed Identifiers
+*. Mixed Identifiers
 
 These contain an alphanumeric identifier, an underscore, and also an operator identifier. Here are some valid examples: myVar_=, unary_+.
 
-d. Literal Identifiers
+*. Literal Identifiers
 
 These contain an arbitrary string enclosed in backticks(`). Some valid examples are: `class`, `Hello, World!`.
 
@@ -332,21 +322,23 @@ For more on closures, refer to Closures in Scala.
 
 The compiler doesn’t randomly look for implicits in your code; it follows the following precedence:
 
-Locally declared implicits
-Imported implicits
-Outer scope (ex- a class for a method)
-Inheritance
-Package object
-Implicit scope like companion objects
+- Locally declared implicits
+- Imported implicits
+- Outer scope (ex- a class for a method)
+- Inheritance
+- Package object
+- Implicit scope like companion objects
+
 28.     What is a lens in Scala?
 
 A lens is an abstraction from functional programming. It makes updating complex immutable nested objects easier for us.
 
 For lenses, we have three kinds of available implementations:
 
-scalaz.Lens
-Quicklens- Has more functionality than a Sauron
-Sauron
+-scalaz.Lens
+-Quicklens- Has more functionality than a Sauron
+-Sauron
+
 29.     Consider for-comprehensions in Scala. What are they syntactic sugars for?
 
 A for-comprehension is one way to carry out the composition of operations on monads. We can replace it with a foreach or a map/flatMap and filter.
@@ -354,18 +346,18 @@ A for-comprehension is one way to carry out the composition of operations on mon
 30.     What is function currying in Scala?
 
 With Scala currying, we can take a function that takes multiple arguments and turn it into a series of functions that take single arguments each. These come in handy working with higher-order functions. With this, we can also fill in only the arguments we have yet.
-
+```
 scala> def mul(a:Int,b:Int)=a*b
 mul: (a: Int, b: Int)Int
 scala> mul(3,4)
 res48: Int = 12
-
+```
 We can define it as follows:
-
+```
 scala> def mul(a:Int)(b:Int)=a*b
 mul: (a: Int)(b: Int)Int
 scala> val mid=mul(3)(_)
 mid: Int => Int = $$Lambda$1540/90644757@43fe3f7
 scala> mid(4)
 res49: Int = 12
-
+```
