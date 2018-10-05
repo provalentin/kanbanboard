@@ -276,19 +276,19 @@ When we take a task and break it into subtasks to execute at one time by multipl
 
 We have four kinds of identifiers in Scala.
 
-*. Alphanumeric Identifiers
+- Alphanumeric Identifiers
 
 These contain letters, underscores, and digits, but only begin with a letter or with an underscore. We name them in camel case. Here are a few examples: ab12, myVal, Pi.
 
-*. Operator Identifiers
+- Operator Identifiers
 
 These contain operator characters except these- ( ) [ ] { } ‘ ” _ . , ; , `. Some valid examples are: +  => <?> ::: .
 
-*. Mixed Identifiers
+- Mixed Identifiers
 
 These contain an alphanumeric identifier, an underscore, and also an operator identifier. Here are some valid examples: myVar_=, unary_+.
 
-*. Literal Identifiers
+- Literal Identifiers
 
 These contain an arbitrary string enclosed in backticks(`). Some valid examples are: `class`, `Hello, World!`.
 
@@ -301,7 +301,7 @@ Have a look at Scala vs Java
 26.     What is a closure in Scala?
 
 A closure in Scala is a function whose value depends on variables declared outside of it. Let’s take an example.
-
+```
 scala> var c=5
 c: Int = 5
 scala> val mul2=(a:Int,b:Int)=>(a+b)*c
@@ -313,7 +313,7 @@ scala> c=7
 c: Int = 7
 scala> mul2(2,3)
 res46: Int = 35
-
+```
 In this example, mul2 reads the new value of ‘c’ when we call it a second time.
 
 For more on closures, refer to Closures in Scala.
@@ -335,9 +335,9 @@ A lens is an abstraction from functional programming. It makes updating complex 
 
 For lenses, we have three kinds of available implementations:
 
--scalaz.Lens
--Quicklens- Has more functionality than a Sauron
--Sauron
+- scalaz.Lens
+- Quicklens- Has more functionality than a Sauron
+- Sauron
 
 29.     Consider for-comprehensions in Scala. What are they syntactic sugars for?
 
